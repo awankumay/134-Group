@@ -1,0 +1,517 @@
+/* ========================================
+   GLOBAL STYLES & VARIABLES
+   ======================================== */
+:root {
+  --primary-color: #2563eb;
+  --primary-dark: #1d4ed8;
+  --secondary-color: #0f172a;
+  --text-color: #1e293b;
+  --text-light: #64748b;
+  --bg-color: #ffffff;
+  --bg-light: #f8fafc;
+  --border-color: #e2e8f0;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+  --border-radius: 8px;
+  --container-width: 1200px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  line-height: 1.6;
+  overflow-x: hidden;
+  /* Use flexbox column layout */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--primary-dark)
+  );
+  color: white;
+  padding: 12px 32px;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ========================================
+   HEADER SECTION
+   ======================================== */
+.header {
+  background: linear-gradient(135deg, var(--secondary-color), #1e293b);
+  /* FIX: Reduce padding and use flex-grow for proportional space */
+  padding: 20px 0;
+  box-shadow: var(--shadow-md);
+  flex-shrink: 0;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.logo-image {
+  /* FIX: Reduce logo size for better viewport fit */
+  max-width: 180px;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(2px 2px 8px rgba(0, 0, 0, 0.4));
+  transition: var(--transition);
+}
+
+.logo-image:hover {
+  transform: scale(1.05);
+}
+
+.logo-icon {
+  font-size: 2.5rem;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.logo-text {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 1px;
+}
+
+/* ========================================
+   CLIENTS SECTION - LOGO SLIDER
+   ======================================== */
+.clients-section {
+  background: #0d8b8b;
+  padding: 40px 0 50px;
+  overflow: hidden;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.clients-title {
+  color: #ffd700;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 40px;
+  letter-spacing: 0.5px;
+}
+
+.clients-slider-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.clients-slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  /* Gradient fade on edges */
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+.clients-track {
+  display: flex;
+  gap: 60px;
+  animation: clientsScroll 25s linear infinite;
+  width: max-content;
+}
+
+.clients-track:hover {
+  animation-play-state: paused;
+}
+
+.client-logo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 200px;
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+
+.client-logo-item:hover {
+  transform: scale(1.05);
+}
+
+.client-logo-img {
+  width: 180px;
+  height: 100px;
+  object-fit: contain;
+  filter: brightness(1.1);
+  transition:
+    filter 0.3s ease,
+    transform 0.3s ease;
+}
+
+.client-logo-item:hover .client-logo-img {
+  filter: brightness(1.2);
+}
+
+.client-name {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.85rem;
+  margin-top: 12px;
+  text-align: center;
+  font-weight: 500;
+}
+
+@keyframes clientsScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+.footer {
+  background: var(--secondary-color);
+  color: white;
+  /* FIX: Reduce padding for better viewport fit */
+  padding: 15px 0;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.footer-text {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+/* 4K & Large Screens (> 1920px) */
+@media (min-width: 1921px) {
+  :root {
+    --container-width: 1600px;
+  }
+
+  .header {
+    padding: 25px 0;
+  }
+
+  .logo-image {
+    max-width: 250px;
+  }
+
+  /* Clients Section - 4K */
+  .clients-section {
+    padding: 50px 0 60px;
+  }
+
+  .clients-title {
+    font-size: 2.2rem;
+    margin-bottom: 50px;
+  }
+
+  .clients-track {
+    gap: 80px;
+  }
+
+  .client-logo-item {
+    min-width: 250px;
+  }
+
+  .client-logo-img {
+    width: 220px;
+    height: 120px;
+  }
+
+  .client-name {
+    font-size: 1rem;
+  }
+
+  .footer {
+    padding: 20px 0;
+  }
+
+  .footer-text {
+    font-size: 1rem;
+  }
+}
+
+/* Large Desktop (1440px - 1920px) */
+@media (min-width: 1440px) and (max-width: 1920px) {
+  .logo-image {
+    max-width: 220px;
+  }
+
+  .header {
+    padding: 22px 0;
+  }
+
+  /* Clients Section - Large Desktop */
+  .clients-section {
+    padding: 45px 0 55px;
+  }
+
+  .clients-title {
+    font-size: 2rem;
+  }
+
+  .clients-track {
+    gap: 70px;
+  }
+
+  .client-logo-item {
+    min-width: 220px;
+  }
+
+  .client-logo-img {
+    width: 200px;
+    height: 110px;
+  }
+}
+
+/* Tablet (768px - 1024px) */
+@media (max-width: 1024px) {
+  :root {
+    --container-width: 900px;
+  }
+
+  .header {
+    padding: 18px 0;
+  }
+
+  .logo-image {
+    max-width: 160px;
+  }
+
+  /* Clients Section - Tablet */
+  .clients-section {
+    padding: 35px 0 45px;
+  }
+
+  .clients-title {
+    font-size: 1.6rem;
+    margin-bottom: 35px;
+  }
+
+  .clients-track {
+    gap: 50px;
+  }
+
+  .client-logo-item {
+    min-width: 180px;
+    padding: 15px;
+  }
+
+  .client-logo-img {
+    width: 160px;
+    height: 90px;
+  }
+}
+
+/* Mobile Large (640px - 767px) */
+@media (max-width: 767px) {
+  :root {
+    --container-width: 100%;
+  }
+
+  .header {
+    padding: 25px 15px;
+  }
+
+  .logo-image {
+    max-width: 200px;
+  }
+
+  /* Clients Section - Mobile Large */
+  .clients-section {
+    padding: 30px 0 40px;
+  }
+
+  .clients-title {
+    font-size: 1.4rem;
+    margin-bottom: 30px;
+    padding: 0 15px;
+  }
+
+  .clients-track {
+    gap: 40px;
+    animation-duration: 20s;
+  }
+
+  .client-logo-item {
+    min-width: 120px;
+    padding: 12px;
+  }
+
+  .client-logo-img {
+    width: 100px;
+    height: 60px;
+  }
+
+  .client-name {
+    font-size: 0.75rem;
+    margin-top: 10px;
+  }
+}
+
+/* Mobile Small (< 640px) */
+@media (max-width: 639px) {
+  .header {
+    padding: 20px 15px;
+  }
+
+  .logo-image {
+    max-width: 180px;
+  }
+
+  /* Clients Section - Mobile Small */
+  .clients-section {
+    padding: 25px 0 35px;
+  }
+
+  .clients-title {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+  }
+
+  .clients-track {
+    gap: 35px;
+    animation-duration: 18s;
+  }
+
+  .client-logo-item {
+    min-width: 100px;
+    padding: 10px;
+  }
+
+  .client-logo-img {
+    width: 80px;
+    height: 50px;
+  }
+
+  .client-name {
+    font-size: 0.7rem;
+  }
+}
+
+/* Extra Small Mobile (< 480px) */
+@media (max-width: 479px) {
+  .header {
+    padding: 18px 10px;
+  }
+
+  .logo-image {
+    max-width: 150px;
+  }
+
+  /* Clients Section - Extra Small */
+  .clients-section {
+    padding: 20px 0 30px;
+  }
+
+  .clients-title {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+
+  .clients-track {
+    gap: 25px;
+    animation-duration: 15s;
+  }
+
+  .client-logo-item {
+    min-width: 90px;
+    padding: 8px;
+  }
+
+  .client-logo-img {
+    width: 70px;
+    height: 45px;
+  }
+
+  .client-name {
+    font-size: 0.65rem;
+    margin-top: 8px;
+  }
+
+  .footer {
+    padding: 12px 0;
+  }
+
+  .footer-text {
+    font-size: 0.8rem;
+  }
+}
+
+/* ========================================
+   ANIMATIONS & HOVER EFFECTS
+   ======================================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

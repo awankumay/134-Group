@@ -28,3 +28,17 @@ Homestead.json
 .env.production
 .phpactor.json
 auth.json
+
+# Path AI & OpenSpec
+.claude/
+.github/
+.kilocode/
+.qwen/
+
+# openspec/
+
+AGENTS.md
+CLAUDE.md
+QWEN.md
+
+tasks/
