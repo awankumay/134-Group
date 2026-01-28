@@ -15,7 +15,8 @@
   "type": "commonjs",
   "main": "middleware.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "mkdir -p public && cp -r ../src/* public/ 2>/dev/null || cp -r src/* public/",
+    "deploy": "npm run build"
   },
   "dependencies": {
     "@vercel/edge": "^1.2.2"
