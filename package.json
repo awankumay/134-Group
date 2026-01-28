@@ -1,0 +1,23 @@
+{
+  "name": "134-group",
+  "version": "1.0.0",
+  "description": "Landing Pages 134 Group",
+  "homepage": "https://github.com/awankumay/134-Group#readme",
+  "bugs": {
+    "url": "https://github.com/awankumay/134-Group/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/awankumay/134-Group.git"
+  },
+  "license": "ISC",
+  "author": "Andika Candra Pristiawan",
+  "type": "commonjs",
+  "main": "middleware.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@vercel/edge": "^1.2.2"
+  }
+}
