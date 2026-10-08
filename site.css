@@ -3,10 +3,9 @@ body{background:var(--color-bg);color:var(--color-text);font-family:var(--font-b
 a{color:var(--color-accent-700)}a:hover{color:var(--color-accent-900)}
 .top{display:flex;justify-content:center;padding:clamp(28px,6vh,64px) 20px clamp(16px,3vh,32px)}
 .brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--color-text)}
-.brand-mark{position:relative;display:grid;place-items:center;width:64px;height:64px;border:1px solid var(--color-accent);font-family:var(--font-heading);font-weight:700;font-size:30px;letter-spacing:-.02em;color:var(--color-accent-700)}
-.brand-word{display:flex;flex-direction:column;line-height:1}
-.brand-word b{font-family:var(--font-heading);font-weight:700;font-size:34px;letter-spacing:.02em;text-transform:uppercase}
-.brand-word span{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--color-neutral-700);margin-top:6px}
+.brand-logo{width:250px;height:250px;object-fit:contain}
+.brand-word{display:none}
+.brand-word b{font-family:var(--font-heading);font-weight:700;font-size:28px;letter-spacing:.02em;text-transform:uppercase}
 main{flex:1;display:flex;flex-direction:column;justify-content:center;padding:0 20px clamp(24px,5vh,56px)}
 .slider{position:relative;width:100%;max-width:1120px;margin:0 auto}
 .viewport{overflow:hidden}
@@ -35,8 +34,8 @@ main{flex:1;display:flex;flex-direction:column;justify-content:center;padding:0 
 @media (max-width:760px){
   .slide{grid-template-columns:1fr}
   .slide-media{border-right:0;border-bottom:1px solid var(--color-neutral-300);min-height:0;aspect-ratio:16/9}
-  .brand-mark{width:52px;height:52px;font-size:24px}
-  .brand-word b{font-size:28px}
+  .brand-logo{width:52px;height:52px}
+  .brand-word{display:flex}
 }
 @media (prefers-reduced-motion:reduce){.track{transition:none}}
 .ph{width:100%;height:100%;display:grid;place-items:center;background:repeating-linear-gradient(135deg,var(--color-neutral-200) 0 1px,transparent 1px 12px)}
